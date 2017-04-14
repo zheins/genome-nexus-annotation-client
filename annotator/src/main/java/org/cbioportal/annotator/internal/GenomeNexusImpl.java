@@ -694,7 +694,7 @@ public class GenomeNexusImpl implements Annotator {
         String highestPriorityConsequence = "";
         Integer highestPriority = Integer.MAX_VALUE;
         for (String consequence : consequences) {
-            if (effectPriority.getOrDefault(consequence, Integer.MAX_VALUE) < highestPriority) {
+            if (effectPriority.getOrDefault(consequence.toLowerCase(), Integer.MAX_VALUE) < highestPriority) {
                 highestPriorityConsequence = consequence;
                 highestPriority = effectPriority.get(consequence);
             }
@@ -789,7 +789,7 @@ public class GenomeNexusImpl implements Annotator {
         effectPriority.put("incomplete_terminal_codon_variant", 10); // A sequence variant where at least one base of the final codon of an incompletely annotated transcript is changed
         effectPriority.put("protein_altering_variant", 11); // A sequence variant which is predicted to change the protein encoded in the coding sequence
         effectPriority.put("coding_sequence_variant", 11); // A sequence variant that changes the coding sequence
-        effectPriority.put("mature_miRNA_variant", 11); // A transcript variant located with the sequence of the mature miRNA
+        effectPriority.put("mature_mirna_variant", 11); // A transcript variant located with the sequence of the mature miRNA
         effectPriority.put("exon_variant", 11); // A sequence variant that changes exon sequence
         effectPriority.put("5_prime_utr_variant", 12); // A UTR variant of the 5' UTR
         effectPriority.put("5_prime_utr_premature_start_codon_gain_variant", 12); // snpEff-specific effect, creating a start codon in 5' UTR
